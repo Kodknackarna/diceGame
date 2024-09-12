@@ -19,9 +19,15 @@ int main() {
     game.startGame(players, diceVector);
     
 
-    //ändra till en while loop
-    for (int i = 0; i < 100; i++) {
+    bool done = false;
+    while(!done) {
         game.takeTurn(players);
+
+        for (auto& player : players) {
+            if (player.getScore() >= 10) {
+                done = true;
+            }
+        }
     };
 
     return 0;
